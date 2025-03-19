@@ -8,25 +8,14 @@ const authRoutes = require("./routes/authRoutes"); // Make sure to import the ro
 
 const app = express();
 app.use(express.json());
-const allowedOrigins = "https://test-2-frontend.vercel.app";
-
-cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (e.g., mobile apps, curl requests)
-    if (!origin) return callback(null, true);
-
-    // Check if the origin is allowed
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      console.warn(`Blocked by CORS: ${origin}`); // Log blocked origins for debugging
-      return callback(new Error("Not allowed by CORS"), false);
-    }
-  },
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allowed HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-  credentials: true, // Allow credentials (cookies, auth headers)
-});
+app.use(
+  cors({
+    origin: "*", // Ensure this matches the frontend URL
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 // Register the routes for /api/auth
 app.use("/api/auth", authRoutes);
