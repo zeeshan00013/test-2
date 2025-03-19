@@ -1,0 +1,263 @@
+// Variables
+$primary-color: #3b82f6;
+$danger-color: #dc3545;
+$border-color: #ddd;
+$box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-hover: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+.todo-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: $box-shadow-hover;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .add-todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+
+    .add-todo-input {
+      width: 66%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      box-shadow: $box-shadow;
+    }
+
+    .add-todo-button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background-color: $primary-color;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .todo-list {
+    list-style: none;
+    padding: 0;
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      box-shadow: $box-shadow;
+
+      .todo-item-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .todo-item-checkbox {
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+        }
+
+        .todo-item-title {
+          font-size: 18px;
+
+          &.todo-item-completed {
+            text-decoration: line-through;
+            color: gray;
+          }
+        }
+      }
+
+      .delete-button {
+        background-color: transparent;
+        color: $danger-color;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: color 0.3s;
+
+        &:hover {
+          color: darken($danger-color, 10%);
+        }
+      }
+    }
+  }
+
+  .logout-button {
+    padding: 10px 15px;
+    background-color: $danger-color;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    box-shadow: $box-shadow;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: darken($danger-color, 10%);
+    }
+  }
+}
+
+// Login Page Styles
+
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: $box-shadow-hover;
+
+
+  .form-input {
+    width: 100%;
+    padding: 15px 3px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: $box-shadow;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .form-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    box-shadow: $box-shadow;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  .error-message {
+    color: $danger-color;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup-link {
+    text-align: center;
+    margin-top: 15px;
+
+    button {
+      background: none;
+      border: none;
+      color: $primary-color;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// SignUp Page Styles
+.signup-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: $box-shadow-hover;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 15px 3px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: $box-shadow;
+  }
+
+  .form-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    box-shadow: $box-shadow;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  .error-message {
+    color: $danger-color;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+
+    button {
+      background: none;
+      border: none;
+      color: $primary-color;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
