@@ -39,7 +39,7 @@ function TodoList() {
     }
     axios
       .post(
-        "http://localhost:5001/api/todos/add",
+        "https://test-2-alpha-five.vercel.app/api/todos/add",
         { title: newTodo },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -54,7 +54,7 @@ function TodoList() {
 
   const handleDeleteTodo = (id) => {
     axios
-      .delete(`http://localhost:5001/api/todos/delete/${id}`, {
+      .delete(`https://test-2-alpha-five.vercel.app/api/todos/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => dispatch(deleteTodo(id)))
@@ -64,7 +64,7 @@ function TodoList() {
   const handleToggleComplete = (id, completed) => {
     axios
       .put(
-        `http://localhost:5001/api/todos/update/${id}`,
+        `https://test-2-alpha-five.vercel.app/api/todos/update/${id}`,
         { completed: !completed },
         {
           headers: { Authorization: `Bearer ${token}` },
