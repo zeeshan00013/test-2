@@ -8,7 +8,25 @@ const authRoutes = require("./routes/authRoutes"); // Make sure to import the ro
 
 const app = express();
 app.use(express.json());
-app.use("*", cors());
+const allowedOrigins = "https://test-2-frontend.vercel.app";
+
+cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (e.g., mobile apps, curl requests)
+    if (!origin) return callback(null, true);
+
+    // Check if the origin is allowed
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      console.warn(`Blocked by CORS: ${origin}`); // Log blocked origins for debugging
+      return callback(new Error("Not allowed by CORS"), false);
+    }
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allowed HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+  credentials: true, // Allow credentials (cookies, auth headers)
+});
 
 // Register the routes for /api/auth
 app.use("/api/auth", authRoutes);
@@ -27,7 +45,9 @@ mongoose
 app.get("/", (req, res) => {
   res.send("HELLO, Database is connected successfully");
 });
-
+app.get("/", (req, res) => {
+  res.status(200).send("Server is running");
+});
 // Setup todo routes
 const todoRoutes = require("./routes/todoRoutes");
 app.use("/api/todos", todoRoutes);
