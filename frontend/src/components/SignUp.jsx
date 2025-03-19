@@ -13,7 +13,7 @@ function SignUp() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/auth/signup",
+        "https://test-2-alpha-five.vercel.app/api/auth/signup",
         {
           username,
           email,

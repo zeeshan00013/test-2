@@ -8,7 +8,7 @@ const authRoutes = require("./routes/authRoutes"); // Make sure to import the ro
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use("*", cors());
 
 // Register the routes for /api/auth
 app.use("/api/auth", authRoutes);

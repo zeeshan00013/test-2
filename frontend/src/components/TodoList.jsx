@@ -20,9 +20,12 @@ function TodoList() {
 
   const fetchTodos = async (token) => {
     try {
-      const response = await axios.get("http://localhost:5001/api/todos", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        "https://test-2-alpha-five.vercel.app/api/todos",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       dispatch(setTodos(response.data));
     } catch (error) {
       console.error("Error fetching todos:", error);
